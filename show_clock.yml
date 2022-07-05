@@ -1,0 +1,16 @@
+---
+
+- name: "TOWER EXAMPLE"
+  hosts: cisco
+  connection: network_cli
+  gather_facts: false
+
+  tasks:
+    - name: "show clock"
+      cisco.ios.ios_command:
+        commands:
+          - show clock
+      register: cisco_show_clock
+
+    - debug:
+        msg: "{{ cisco_show clock }}"
